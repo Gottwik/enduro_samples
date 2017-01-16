@@ -1,0 +1,9 @@
+{{#blog}}
+	{{#each this}}
+		<article>
+			<h2>{{blog_entry.blog_title}}</h2>
+			<p>{{{blog_entry.blog_text}}}</p>
+			<a href="/blog/{{page_slug}}">Read more...</a>
+		</article>
+	{{/each}}
+{{/blog}}
