@@ -1,8 +1,10 @@
 var local_app = function () {}
 
+var temper = enduro.temper
+
 local_app.prototype.init = function (app) {
 	app.get('/random', function (req, res) {
-		enduro.temper.render('random', {random_number: Math.random()})
+		temper.render('random', {random_number: Math.random()})
 			.then((output) => {
 				res.send(output)
 			})

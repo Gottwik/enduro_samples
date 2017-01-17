@@ -2,10 +2,10 @@ var _ = require('lodash')
 var Promise = require('bluebird')
 
 // pagelist_generator helps to fetch all the blog entries
-var pagelist_generator = require(ENDURO_FOLDER + '/libs/build_tools/pagelist_generator')
+var pagelist_generator = enduro.pagelist_generator
 
 // flat_file_handler will load each blog entry
-var flat_file_handler = require(ENDURO_FOLDER + '/libs/flat_utilities/flat_file_handler')
+var flat_file_handler = enduro.flat_file_handler
 
 __templating_engine.registerHelper('blog', function (options) {
 
