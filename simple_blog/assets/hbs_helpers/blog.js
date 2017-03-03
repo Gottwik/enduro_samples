@@ -1,19 +1,13 @@
 var _ = require('lodash')
 var Promise = require('bluebird')
 
-// pagelist_generator helps to fetch all the blog entries
-var pagelist_generator = enduro.pagelist_generator
-
-// flat_file_handler will load each blog entry
-var flat_file_handler = enduro.flat_file_handler
-
-__templating_engine.registerHelper('blog', function (options) {
+enduro.templating_engine.registerHelper('blog', function (options) {
 
 	// will store all the blog entries
 	var blog_entries
 
 	// get_cms_list will return a structured list of all pages in a project
-	return pagelist_generator.get_cms_list()
+	return enduro.api.pagelist_generator.get_cms_list()
 		.then((pagelist) => {
 
 			// will store the promises from reading all the blog entries
@@ -27,7 +21,7 @@ __templating_engine.registerHelper('blog', function (options) {
 				var page = blog_entries[page_id]
 
 				function get_content (page) {
-					get_content_promises.push(flat_file_handler.load(page.fullpath).then((content) => { page.blog_entry = content }))
+					get_content_promises.push(enduro.api.flat.load(page.fullpath).then((content) => { page.blog_entry = content }))
 				}
 
 				get_content(page)
