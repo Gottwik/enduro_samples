@@ -1,5 +1,5 @@
 {
-	"name": "enduro_scaffolding",
+	"name": "enduro_angular_sample",
 	"version": "1.0.0",
 	"description": "",
 	"main": "assets/vendor/enduro/index.js",
@@ -7,10 +7,10 @@
 		"postinstall": "./node_modules/bower/bin/bower install",
 		"start": "node_modules/.bin/enduro start"
 	},
-	"author": "author goes here",
-	"license": "ISC",
+	"author": "Martin Gottweis",
+	"license": "MIT",
 	"dependencies": {
 		"bower": "^1.7.7",
-		"enduro": "*"
+		"enduro": "1.4.10"
 	}
 }
