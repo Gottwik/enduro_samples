@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>enduro.js feedback form sample</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	</head>
+	<body>
+		<h3>How did you like the spaghetti?</h3>
+		<form class="feedback_form">
+			<input type="text" name="spaghetti_feedback">
+			<input type="submit" name="">
+		</form>
+	</body>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+
+		var feedback_form = $('.feedback_form');
+
+		feedback_form.submit(function (e) {
+			var form_data = {};
+			feedback_form.serializeArray().map(function (x) { form_data[x.name] = x.value })
+			$.get(get_base_url() + '/submit_feedback', form_data, function (data) {
+				location.reload()
+			})
+
+			e.preventDefault()
+		})
+
+		// thing to get around using localhost:3000 with api endpoints only available on port 5000
+		function get_base_url () {
+			return (window.location.href.indexOf('localhost') + 1)
+				?	'http://localhost:5000'
+				:	''
+		}
+	</script>
+</html>
