@@ -26,6 +26,10 @@ enduro_admin_app.compileProvider
 						}
 					})
 
+					scope.$watch('current_culture', function () {
+						current_content.content.innerHTML = scope.context[scope.terminatedkey] || ''
+					})
+
 					current_content.content.innerHTML = scope.context[scope.terminatedkey]
 				})
 			}
