@@ -1,8 +1,4 @@
-// inject pell into the admin interface
-// var script = document.createElement('script')
-// script.setAttribute('src', 'https://unpkg.com/pell')
-// script.setAttribute('type', 'text/javascript')
-// document.getElementsByTagName('head')[0].appendChild(script)
+// all js files in admin_extensions folder will be injected into the admin interface
 
 $.ajaxSetup({
     cache: true
