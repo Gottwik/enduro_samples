@@ -18,9 +18,9 @@ $('head')
 `)
 
 enduro_admin_app.compileProvider
-	.directive('marked', function() {
+	.directive('marked', function () {
 		return {
-			link: function(scope, element, attrs) {
+			link: function (scope, element, attrs) {
 				$.getScript('/assets/vendor/simplemde/dist/simplemde.min.js', function () {
 					var options = {
 						element: element[0],
@@ -34,7 +34,7 @@ enduro_admin_app.compileProvider
 						instance: mde
 					}
 					scope.$watch('current_culture', function () {
-						mde.value(scope.context[scope.terminatedkey] || '');
+						mde.value(scope.context[scope.terminatedkey] || '')
 					})
 				})
 			}
